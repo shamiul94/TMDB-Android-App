@@ -50,6 +50,7 @@ dependencies {
 
     //Image
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     //Testing
     testImplementation 'junit:junit:4.13'

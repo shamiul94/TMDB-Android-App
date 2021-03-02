@@ -1,5 +1,6 @@
 package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View.GONE
@@ -65,6 +66,12 @@ class NewsListActivity : AppCompatActivity(), OnItemClickListener {
         Toast.makeText(this, "User name ${news.title} \n ", Toast.LENGTH_LONG)
             .show()
 //        Log.i("USER_",user.username)
+
+        val intent = Intent(this, MovieDetailsActivity::class.java)
+        // To pass any data to next activity
+//        intent.putExtra("keyIdentifier", value)
+        // start your next activity
+        startActivity(intent)
     }
 
 }
