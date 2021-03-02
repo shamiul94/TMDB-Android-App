@@ -4,19 +4,22 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.R
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.adapter.NewsListAdapter
+import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.News
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State.ERROR
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State.LOADING
+import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.interfaces.OnItemClickListener
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.viewModel.NewsListViewModel
 import kotlinx.android.synthetic.main.activity_news_list.*
 
-class NewsListActivity : AppCompatActivity() {
+class NewsListActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var viewModel: NewsListViewModel
     private lateinit var newsListAdapter: NewsListAdapter
@@ -38,7 +41,7 @@ class NewsListActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        newsListAdapter = NewsListAdapter { viewModel.retry() }
+        newsListAdapter = NewsListAdapter({ viewModel.retry() }, this)
         recycler_view.adapter = newsListAdapter
         viewModel.newsList.observe(this,
             Observer {
@@ -56,6 +59,12 @@ class NewsListActivity : AppCompatActivity() {
                 newsListAdapter.setState(state ?: State.DONE)
             }
         })
+    }
+
+    override fun onItemClicked(news: News) {
+        Toast.makeText(this, "User name ${news.title} \n ", Toast.LENGTH_LONG)
+            .show()
+//        Log.i("USER_",user.username)
     }
 
 }

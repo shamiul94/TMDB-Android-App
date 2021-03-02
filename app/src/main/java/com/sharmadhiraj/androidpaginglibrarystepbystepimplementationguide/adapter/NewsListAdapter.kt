@@ -6,8 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.News
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State
+import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.interfaces.OnItemClickListener
 
-class NewsListAdapter(private val retry: () -> Unit) // unit -- void
+class NewsListAdapter(
+    private val retry: () -> Unit,
+    val itemClickListener: OnItemClickListener
+) // unit -- void
     : PagedListAdapter<News, RecyclerView.ViewHolder>(NewsDiffCallback) {
 
     private val DATA_VIEW_TYPE = 1
@@ -24,8 +28,8 @@ class NewsListAdapter(private val retry: () -> Unit) // unit -- void
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == DATA_VIEW_TYPE)
-            (holder as NewsViewHolder).bind(getItem(position))
-        else (holder as ListFooterViewHolder).bind(state)
+            (holder as NewsViewHolder).bind(getItem(position), itemClickListener)
+        else (holder as ListFooterViewHolder).bind(state) // different bind
     }
 
     override fun getItemViewType(position: Int): Int {
