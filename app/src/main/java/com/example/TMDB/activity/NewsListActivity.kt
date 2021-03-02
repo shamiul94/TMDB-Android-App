@@ -69,7 +69,11 @@ class NewsListActivity : AppCompatActivity(), OnItemClickListener {
 
         val intent = Intent(this, MovieDetailsActivity::class.java)
         // To pass any data to next activity
-//        intent.putExtra("keyIdentifier", value)
+        intent.putExtra("movie_title", news.title)
+        intent.putExtra("back_drop_path", news.backdropPath)
+        intent.putExtra("poster_path", news.posterPath)
+        intent.putExtra("details", news.overview)
+        intent.putExtra("vote_average", news.voteAverage)
         // start your next activity
         startActivity(intent)
     }
