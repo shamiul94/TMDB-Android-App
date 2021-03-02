@@ -7,6 +7,7 @@ import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.R
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.adapter.NewsListAdapter
 import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State
@@ -27,8 +28,13 @@ class NewsListActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(NewsListViewModel::class.java)
 
+        initLayoutManager()
         initAdapter()
         initState()
+    }
+
+    private fun initLayoutManager() {
+        recycler_view.layoutManager = GridLayoutManager(this, 2)
     }
 
     private fun initAdapter() {
