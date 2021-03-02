@@ -34,9 +34,11 @@
                 android:textColor="#FFF"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content" android:layout_alignParentBottom="true"
-                android:layout_marginBottom="504dp" android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true" android:layout_marginRight="145dp"
-                android:layout_marginEnd="145dp"/>
+                android:layout_marginBottom="519dp" android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" android:layout_marginRight="151dp"
+                android:layout_marginEnd="151dp"/>
+
+
         <TextView
                 android:id="@+id/details_overview"
                 android:text="TextView"
@@ -67,6 +69,15 @@
                 android:layout_marginBottom="420dp" android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true" android:layout_marginRight="209dp"
                 android:layout_marginEnd="209dp"/>
+        <TextView
+                android:text="TextView"
+                android:textColor="#FFF"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/release_date" android:layout_alignParentBottom="true"
+                android:layout_marginBottom="500dp" android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" android:layout_marginRight="195dp"
+                android:layout_marginEnd="195dp"/>
 
     </RelativeLayout>
 
