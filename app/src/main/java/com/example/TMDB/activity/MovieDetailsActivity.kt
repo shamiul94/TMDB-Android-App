@@ -21,7 +21,10 @@ class MovieDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
+        initiateTextFields()
+    }
 
+    private fun initiateTextFields() {
         movie_title = intent.getStringExtra("movie_title").toString()
         back_drop_path = intent.getStringExtra("back_drop_path").toString()
         poster_path = intent.getStringExtra("poster_path").toString()
@@ -43,7 +46,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         val cover_image: ImageView = findViewById(R.id.details_cover)
         val release_date_text: TextView = findViewById(R.id.release_date)
 
-        val a: Double = vote_average.toFloat()/2.0
+        val a: Double = vote_average.toFloat() / 2.0
         overview_field.text = details
         title_field.text = movie_title
         rating_star.rating = a.toFloat()
