@@ -73,7 +73,7 @@ class NewsListActivity : AppCompatActivity(), OnItemClickListener {
         intent.putExtra("back_drop_path", news.backdropPath)
         intent.putExtra("poster_path", news.posterPath)
         intent.putExtra("details", news.overview)
-        intent.putExtra("vote_average", news.voteAverage)
+        intent.putExtra("vote_average", news.voteAverage.toString())
         // start your next activity
         startActivity(intent)
     }

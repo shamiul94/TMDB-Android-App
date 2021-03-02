@@ -2,6 +2,8 @@ package com.example.TMDB.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.RatingBar
 import android.widget.TextView
 import com.example.TMDB.R
 
@@ -22,10 +24,20 @@ class MovieDetailsActivity : AppCompatActivity() {
         details = intent.getStringExtra("details").toString()
         vote_average = intent.getStringExtra("vote_average").toString()
 
+        Log.d("vote_average", vote_average)
+        Log.d("movie_title", movie_title)
+        Log.d("back_drop_path", back_drop_path)
+        Log.d("details", details)
+        Log.d("poster_path", poster_path)
+
         val overview_field: TextView = findViewById<TextView>(R.id.details_overview)
         val title_field: TextView = findViewById<TextView>(R.id.details_movie_title)
+        val rating_star: RatingBar = findViewById(R.id.rating_bar)
+        val rating_text : TextView = findViewById(R.id.rating_text)
 
         overview_field.text = details
         title_field.text = movie_title
+        rating_star.setRating(vote_average.toFloat())
+        rating_text.text = vote_average
     }
 }
