@@ -1,12 +1,12 @@
-package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.adapter
+package com.example.TMDB.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.News
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.interfaces.OnItemClickListener
+import com.example.TMDB.data.News
+import com.example.TMDB.data.State
+import com.example.TMDB.interfaces.OnItemClickListener
 
 class NewsListAdapter(
     private val retry: () -> Unit,

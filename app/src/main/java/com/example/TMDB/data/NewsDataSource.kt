@@ -1,10 +1,10 @@
-package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data
+package com.example.TMDB.data
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State.DONE
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State.ERROR
+import com.example.TMDB.data.State.DONE
+import com.example.TMDB.data.State.ERROR
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

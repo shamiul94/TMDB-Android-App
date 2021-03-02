@@ -1,8 +1,7 @@
-package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.activity
+package com.example.TMDB.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -10,14 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.R
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.adapter.NewsListAdapter
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.News
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State.ERROR
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.State.LOADING
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.interfaces.OnItemClickListener
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.viewModel.NewsListViewModel
+import com.example.TMDB.activity.MovieDetailsActivity
+import com.example.TMDB.R
+import com.example.TMDB.adapter.NewsListAdapter
+import com.example.TMDB.data.News
+import com.example.TMDB.data.State
+import com.example.TMDB.data.State.ERROR
+import com.example.TMDB.data.State.LOADING
+import com.example.TMDB.interfaces.OnItemClickListener
+import com.example.TMDB.viewModel.NewsListViewModel
 import kotlinx.android.synthetic.main.activity_news_list.*
 
 class NewsListActivity : AppCompatActivity(), OnItemClickListener {

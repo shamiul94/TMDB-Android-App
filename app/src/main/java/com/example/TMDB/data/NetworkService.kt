@@ -1,4 +1,4 @@
-package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data
+package com.example.TMDB.data
 
 import io.reactivex.Single
 import retrofit2.Retrofit

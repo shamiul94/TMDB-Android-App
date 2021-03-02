@@ -1,8 +1,8 @@
-package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.activity
+package com.example.TMDB.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.R
+import com.example.TMDB.R
 
 class MovieDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

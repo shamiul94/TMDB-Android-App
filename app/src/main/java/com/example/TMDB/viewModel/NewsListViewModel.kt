@@ -1,11 +1,11 @@
-package com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.viewModel
+package com.example.TMDB.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.sharmadhiraj.androidpaginglibrarystepbystepimplementationguide.data.*
+import com.example.TMDB.data.*
 import io.reactivex.disposables.CompositeDisposable
 
 class NewsListViewModel : ViewModel() {
