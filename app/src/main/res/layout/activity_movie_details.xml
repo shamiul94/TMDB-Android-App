@@ -74,7 +74,8 @@
                 android:textColor="#FFF"
 
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/release_date" android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content" android:id="@+id/release_date"
+                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="500dp" android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true" android:layout_marginRight="195dp"
                 android:layout_marginEnd="195dp"/>
@@ -85,6 +86,19 @@
                 android:layout_height="200dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="5dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:contentDescription="@string/submit"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="27dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                android:layout_marginEnd="24dp"/>
 
     </RelativeLayout>
 
