@@ -1,7 +1,8 @@
 # TMDB App
 ## Preface
-I have not been able to complete all the features’ implementation. As I didn’t have any prior knowledge of working with Android or Kotlin, it took me a bit longer than usual to implement very simple and trivial things. Implementation of ‘Paging’ took most of the time and I learnt about Retrofit, RxJava while implementing it.
-I believe given 1-2 days more, I can complete the whole project.
+I have not been able to complete all the features’ implementation. As I didn’t have any prior knowledge of working with Android or Kotlin, it took me a bit longer than usual to implement very simple and trivial things. 
+Implementation of ‘Paging’ took most of the time and I learnt about Retrofit, RxJava while implementing it.
+I believe that given 1-2 days more, I can complete the whole project.
 
 ## Features
 Completed Features:
@@ -13,12 +14,12 @@ Completed Features:
 6.	It should show the summary of the movie.
 7.	It should show the rating of the movie.
 8.	It should show the release date of the movie.
+9. It should show the cast of the movie.
 
 Incomplete Features:
-1.	It should show the cast of the movie.
-2.	Users can save a movie from details of the movie. It will be saved on the device's local database.
-3.	Users can view the list of saved movies
-4.	Profile page should be a static page.
+1.	Users can save a movie from details of the movie. It will be saved on the device's local database.
+2.	Users can view the list of saved movies
+3.	Profile page should be a static page.
 
 ## How To Run It
 Open the project in IntellIJ and build it. Connect it with a real device using USB cable and it will run. 
@@ -27,10 +28,11 @@ Open the project in IntellIJ and build it. Connect it with a real device using U
 ![SS1](screenshots/photo-1.jpg)
 ![SS2](screenshots/photo-2.jpg)
 ![SS3](screenshots/photo-3.jpg)
+![SS4](screenshots/SS-4.jpg)
+
 
 
 ## Future Works
-1. Showing the cast list
-2. Make a static profile
-3. Introduce fragments
-4. Intruduce SQLite using Room library
+* Make a static profile
+* Introduce fragments
+* Intruduce SQLite using Room library
