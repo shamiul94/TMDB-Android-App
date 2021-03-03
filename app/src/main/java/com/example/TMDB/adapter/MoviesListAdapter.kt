@@ -12,7 +12,7 @@ class MoviesListAdapter(
     private val retry: () -> Unit,
     val itemClickListener: OnItemClickListener
 ) // unit -- void
-    : PagedListAdapter<Movies, RecyclerView.ViewHolder>(NewsDiffCallback) {
+    : PagedListAdapter<Movies, RecyclerView.ViewHolder>(MoviesDiffCallback) {
 
     private val DATA_VIEW_TYPE = 1
     private val FOOTER_VIEW_TYPE = 2
@@ -37,7 +37,7 @@ class MoviesListAdapter(
     }
 
     companion object {
-        val NewsDiffCallback = object : DiffUtil.ItemCallback<Movies>() {
+        val MoviesDiffCallback = object : DiffUtil.ItemCallback<Movies>() {
             override fun areItemsTheSame(oldItem: Movies, newItem: Movies): Boolean {
                 return oldItem.title == newItem.title
             }
