@@ -2,7 +2,7 @@ package com.example.TMDB.data
 
 import com.google.gson.annotations.SerializedName
 
-data class News(
+data class Movies(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")
@@ -37,7 +37,7 @@ data class Response(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
-    val results: List<News>,
+    val results: List<Movies>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")
@@ -45,7 +45,7 @@ data class Response(
 )
 
 
-//data class News(
+//data class Movies(
 //    val title: String,
 //    @SerializedName("urlToImage")
 //    val image: String?
@@ -53,6 +53,6 @@ data class Response(
 //
 //data class Response(
 //    @SerializedName("articles")
-//    val news: List<News>
+//    val news: List<Movies>
 //)
 

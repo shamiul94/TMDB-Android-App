@@ -8,14 +8,14 @@ import androidx.paging.PagedList
 import com.example.TMDB.data.*
 import io.reactivex.disposables.CompositeDisposable
 
-class NewsListViewModel : ViewModel() {
+class MoviesListViewModel : ViewModel() {
 
     private val networkService = NetworkService.getService()
-    var newsList: LiveData<PagedList<News>>
+    var moviesList: LiveData<PagedList<Movies>>
     private val compositeDisposable = CompositeDisposable()
     private val pageSize = 5
-    private val newsDataSourceFactory: NewsDataSourceFactory =
-        NewsDataSourceFactory(compositeDisposable, networkService)
+    private val moviesDataSourceFactory: MoviesDataSourceFactory =
+        MoviesDataSourceFactory(compositeDisposable, networkService)
 
     init {
         val config = PagedList.Config.Builder()
@@ -23,21 +23,21 @@ class NewsListViewModel : ViewModel() {
             .setInitialLoadSizeHint(pageSize * 2)
             .setEnablePlaceholders(false)
             .build()
-        newsList = LivePagedListBuilder(newsDataSourceFactory, config).build()
+        moviesList = LivePagedListBuilder(moviesDataSourceFactory, config).build()
     }
 
 
     fun getState(): LiveData<State> = Transformations.switchMap(
-        newsDataSourceFactory.newsDataSourceLiveData,
-        NewsDataSource::state
+        moviesDataSourceFactory.newsDataSourceLiveData,
+        MoviesDataSource::state
     )
 
     fun retry() {
-        newsDataSourceFactory.newsDataSourceLiveData.value?.retry()
+        moviesDataSourceFactory.newsDataSourceLiveData.value?.retry()
     }
 
     fun listIsEmpty(): Boolean {
-        return newsList.value?.isEmpty() ?: true
+        return moviesList.value?.isEmpty() ?: true
     }
 
     override fun onCleared() {

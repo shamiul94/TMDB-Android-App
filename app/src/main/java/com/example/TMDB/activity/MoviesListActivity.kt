@@ -9,28 +9,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.TMDB.activity.MovieDetailsActivity
 import com.example.TMDB.R
-import com.example.TMDB.adapter.NewsListAdapter
-import com.example.TMDB.data.News
+import com.example.TMDB.adapter.MoviesListAdapter
+import com.example.TMDB.data.Movies
 import com.example.TMDB.data.State
 import com.example.TMDB.data.State.ERROR
 import com.example.TMDB.data.State.LOADING
 import com.example.TMDB.interfaces.OnItemClickListener
-import com.example.TMDB.viewModel.NewsListViewModel
+import com.example.TMDB.viewModel.MoviesListViewModel
 import kotlinx.android.synthetic.main.activity_news_list.*
 
-class NewsListActivity : AppCompatActivity(), OnItemClickListener {
+class MoviesListActivity : AppCompatActivity(), OnItemClickListener {
 
-    private lateinit var viewModel: NewsListViewModel
-    private lateinit var newsListAdapter: NewsListAdapter
+    private lateinit var viewModel: MoviesListViewModel
+    private lateinit var moviesListAdapter: MoviesListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_list)
 
 
-        viewModel = ViewModelProvider(this).get(NewsListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MoviesListViewModel::class.java)
 
         initLayoutManager()
         initAdapter()
@@ -42,11 +41,11 @@ class NewsListActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     private fun initAdapter() {
-        newsListAdapter = NewsListAdapter({ viewModel.retry() }, this)
-        recycler_view.adapter = newsListAdapter
-        viewModel.newsList.observe(this,
+        moviesListAdapter = MoviesListAdapter({ viewModel.retry() }, this)
+        recycler_view.adapter = moviesListAdapter
+        viewModel.moviesList.observe(this,
             Observer {
-                newsListAdapter.submitList(it)
+                moviesListAdapter.submitList(it)
             }
         )
     }
@@ -57,25 +56,25 @@ class NewsListActivity : AppCompatActivity(), OnItemClickListener {
             progress_bar.visibility = if (viewModel.listIsEmpty() && state == LOADING) VISIBLE else GONE
             txt_error.visibility = if (viewModel.listIsEmpty() && state == ERROR) VISIBLE else GONE
             if (!viewModel.listIsEmpty()) {
-                newsListAdapter.setState(state ?: State.DONE)
+                moviesListAdapter.setState(state ?: State.DONE)
             }
         })
     }
 
-    override fun onItemClicked(news: News) {
-        Toast.makeText(this, "User name ${news.title} \n ", Toast.LENGTH_LONG)
+    override fun onItemClicked(movies: Movies) {
+        Toast.makeText(this, "User name ${movies.title} \n ", Toast.LENGTH_LONG)
             .show()
 //        Log.i("USER_",user.username)
 
         val intent = Intent(this, MovieDetailsActivity::class.java)
         // To pass any data to next activity
-        intent.putExtra("movie_title", news.title)
-        intent.putExtra("movie_id", news.id.toString())
-        intent.putExtra("back_drop_path", news.backdropPath)
-        intent.putExtra("poster_path", news.posterPath)
-        intent.putExtra("details", news.overview)
-        intent.putExtra("release_date", news.releaseDate)
-        intent.putExtra("vote_average", news.voteAverage.toString())
+        intent.putExtra("movie_title", movies.title)
+        intent.putExtra("movie_id", movies.id.toString())
+        intent.putExtra("back_drop_path", movies.backdropPath)
+        intent.putExtra("poster_path", movies.posterPath)
+        intent.putExtra("details", movies.overview)
+        intent.putExtra("release_date", movies.releaseDate)
+        intent.putExtra("vote_average", movies.voteAverage.toString())
         // start your next activity
         startActivity(intent)
     }

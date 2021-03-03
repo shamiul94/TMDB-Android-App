@@ -4,15 +4,15 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.TMDB.data.News
+import com.example.TMDB.data.Movies
 import com.example.TMDB.data.State
 import com.example.TMDB.interfaces.OnItemClickListener
 
-class NewsListAdapter(
+class MoviesListAdapter(
     private val retry: () -> Unit,
     val itemClickListener: OnItemClickListener
 ) // unit -- void
-    : PagedListAdapter<News, RecyclerView.ViewHolder>(NewsDiffCallback) {
+    : PagedListAdapter<Movies, RecyclerView.ViewHolder>(NewsDiffCallback) {
 
     private val DATA_VIEW_TYPE = 1
     private val FOOTER_VIEW_TYPE = 2
@@ -21,14 +21,14 @@ class NewsListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == DATA_VIEW_TYPE)
-            NewsViewHolder.create(parent)
+            MoviesViewHolder.create(parent)
         else
             ListFooterViewHolder.create(retry, parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == DATA_VIEW_TYPE)
-            (holder as NewsViewHolder).bind(getItem(position), itemClickListener)
+            (holder as MoviesViewHolder).bind(getItem(position), itemClickListener)
         else (holder as ListFooterViewHolder).bind(state) // different bind
     }
 
@@ -37,12 +37,12 @@ class NewsListAdapter(
     }
 
     companion object {
-        val NewsDiffCallback = object : DiffUtil.ItemCallback<News>() {
-            override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
+        val NewsDiffCallback = object : DiffUtil.ItemCallback<Movies>() {
+            override fun areItemsTheSame(oldItem: Movies, newItem: Movies): Boolean {
                 return oldItem.title == newItem.title
             }
 
-            override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
+            override fun areContentsTheSame(oldItem: Movies, newItem: Movies): Boolean {
                 return oldItem == newItem
             }
         }

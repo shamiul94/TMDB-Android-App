@@ -11,16 +11,16 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Action
 import io.reactivex.schedulers.Schedulers
 
-class NewsDataSource(
+class MoviesDataSource(
         private val networkService: NetworkService,
         private val compositeDisposable: CompositeDisposable)
-    : PageKeyedDataSource<Int, News>() {
+    : PageKeyedDataSource<Int, Movies>() {
 
     var state: MutableLiveData<State> = MutableLiveData()
     private var retryCompletable: Completable? = null
 
 
-    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, News>) {
+    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, Movies>) {
         updateState(State.LOADING)
         compositeDisposable.add(
                 networkService.getNews(1)
@@ -41,7 +41,7 @@ class NewsDataSource(
         )
     }
 
-    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, News>) {
+    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Movies>) {
         updateState(State.LOADING)
         compositeDisposable.add(
                 networkService.getNews(params.key)
@@ -60,7 +60,7 @@ class NewsDataSource(
         )
     }
 
-    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, News>) {
+    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, Movies>) {
     }
 
     private fun updateState(state: State) {
