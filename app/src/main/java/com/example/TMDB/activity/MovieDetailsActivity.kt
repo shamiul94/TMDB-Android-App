@@ -40,7 +40,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         mService = Common.retrofitService
 
-        recycler_cast_list.setHasFixedSize(true)
+//        recycler_cast_list.setHasFixedSize(false)
         layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.HORIZONTAL,
             false
