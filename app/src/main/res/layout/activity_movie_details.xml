@@ -78,20 +78,13 @@
                 android:layout_marginBottom="500dp" android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true" android:layout_marginRight="195dp"
                 android:layout_marginEnd="195dp"/>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <TextView
-                    android:text="TextView"
-                    android:textColor="#FFF"
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/rel" android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="500dp" android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true" android:layout_marginRight="195dp"
-                    android:layout_marginEnd="195dp"/>
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_cast_list"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"/>
 
     </RelativeLayout>
 

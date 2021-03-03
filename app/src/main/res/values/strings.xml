@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TMDB PRIYO</string>
     <string name="error_message">Error !! Tap to retry.</string>
+    <string name="dummy">dummy</string>
 </resources>
