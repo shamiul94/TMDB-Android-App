@@ -2,6 +2,7 @@ package com.example.TMDB.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -18,6 +19,8 @@ import com.example.TMDB.data.State.LOADING
 import com.example.TMDB.interfaces.OnItemClickListener
 import com.example.TMDB.viewModel.MoviesListViewModel
 import kotlinx.android.synthetic.main.activity_news_list.*
+import android.app.Activity
+
 
 class MoviesListActivity : AppCompatActivity(), OnItemClickListener {
 
@@ -77,6 +80,15 @@ class MoviesListActivity : AppCompatActivity(), OnItemClickListener {
         intent.putExtra("vote_average", movies.voteAverage.toString())
         // start your next activity
         startActivity(intent)
+    }
+
+    fun showFavList(view: View) {
+        if (!(this as Activity).isFinishing) {
+            //show dialog
+            val intent = Intent(this, FavouriteListActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 }

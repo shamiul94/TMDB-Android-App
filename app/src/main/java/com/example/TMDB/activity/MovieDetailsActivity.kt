@@ -112,24 +112,6 @@ class MovieDetailsActivity : AppCompatActivity() {
     }
 
     fun saveFavDB(view: View) {
-//        var movieEntity = MovieEntity()
-////        movieEntity.id = 1
-////        Log.d("kire mama", "asda")
-//        movieEntity.movieId = movie_id.toInt()
-//        movieEntity.movieName = movie_title
-//
-//        db.movieDao().saveMovie(movieEntity)
-//
-////        Log.d("db ki?", x.toString())
-//
-//        //fetch Records
-//        db.movieDao().getAllFavMovie().forEach()
-//        {
-//            Log.i("Fetch Records", "Id:  : ${it.movieId}")
-//            Log.i("Fetch Records", "Name:  : ${it.movieName}")
-//        }
-
-
         db = databaseBuilder(applicationContext, AppDb::class.java, "MovieDB").build()
 
         //Insert Case
@@ -146,9 +128,6 @@ class MovieDetailsActivity : AppCompatActivity() {
             movieEntity.movieName = movie_title
 
             db.movieDao().saveMovie(movieEntity)
-
-            //fetch Records
-
         }
         thread.start()
     }
