@@ -88,7 +88,8 @@
                 android:layout_marginBottom="5dp"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
+                android:id="@+id/set_fav_btn"
+                android:onClick="saveFavDB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"

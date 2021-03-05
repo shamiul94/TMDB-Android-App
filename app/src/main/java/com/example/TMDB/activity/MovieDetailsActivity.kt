@@ -1,21 +1,23 @@
 package com.example.TMDB.activity
 
-import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room.databaseBuilder
 import com.example.TMDB.R
 import com.example.TMDB.adapter.MovieDetailsAdapter
 import com.example.TMDB.common.Common
 import com.example.TMDB.data.Details
+import com.example.TMDB.database.AppDb
 import com.example.TMDB.interfaces.RetrofitService
+import com.example.myapplication.MovieEntity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
-import kotlinx.android.synthetic.main.item_news.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,10 +34,13 @@ class MovieDetailsActivity : AppCompatActivity() {
     lateinit var mService: RetrofitService
     lateinit var layoutManager: LinearLayoutManager
     lateinit var detailsAdapter: MovieDetailsAdapter
+    lateinit var db: AppDb
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
+
+
         initiateTextFields()
 
         mService = Common.retrofitService
@@ -104,5 +109,47 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         Picasso.get().load("https://image.tmdb.org/t/p/original" + back_drop_path)
             .into(cover_image)
+    }
+
+    fun saveFavDB(view: View) {
+//        var movieEntity = MovieEntity()
+////        movieEntity.id = 1
+////        Log.d("kire mama", "asda")
+//        movieEntity.movieId = movie_id.toInt()
+//        movieEntity.movieName = movie_title
+//
+//        db.movieDao().saveMovie(movieEntity)
+//
+////        Log.d("db ki?", x.toString())
+//
+//        //fetch Records
+//        db.movieDao().getAllFavMovie().forEach()
+//        {
+//            Log.i("Fetch Records", "Id:  : ${it.movieId}")
+//            Log.i("Fetch Records", "Name:  : ${it.movieName}")
+//        }
+
+
+        db = databaseBuilder(applicationContext, AppDb::class.java, "MovieDB").build()
+
+        //Insert Case
+        val thread = Thread {
+            db.movieDao().getAllFavMovie().forEach()
+            {
+                Log.d("Fetch Records", "Id:  : ${it.movieId}")
+                Log.d("Fetch Records", "Name:  : ${it.movieName}")
+            }
+
+            var movieEntity = MovieEntity()
+            movieEntity.id = movie_id.toInt()
+            movieEntity.movieId = movie_id.toInt()
+            movieEntity.movieName = movie_title
+
+            db.movieDao().saveMovie(movieEntity)
+
+            //fetch Records
+
+        }
+        thread.start()
     }
 }
